@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div id="root">
+    <h1>Counter: <span id="count">0</span></h1>
+    <button id="add1">Add 1</button>
+    <button id="subtract1">Subtract 1</button>
+  </div>
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+
+  <script type="text/javascript">
+    $("#add1").click(function (e) { 
+      var counter =  $("#count");
+      var count = parseInt(counter.text());  
+      counter.text(count+1);
+    });
+
+    $("#subtract1").click(function (e) { 
+      var count = parseInt($("#count").text());  
+      count = count - 1;
+      if (count < 0) {
+        count = 0;
+      }
+      $("#count").text(count);
+    });
+  </script>
+
+</body>
+
+</html>

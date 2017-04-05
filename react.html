@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div id="root">
+  </div>
+  
+  <script src="https://unpkg.com/react@15/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js">
+
+  </script>
+    <script type="text/babel">
+      class Counter extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {count: parseInt(props.count)};
+          this.add = this.add.bind(this);
+          this.subtract = this.subtract.bind(this);
+        }
+
+        add() {
+          this.setState({
+            count : this.state.count + 1
+          })
+        }
+
+        subtract() {
+          var count = this.state.count - 1;
+          if(count < 0) count = 0;
+          this.setState({
+            count 
+          })
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>Counter: {this.state.count}</h1>
+              <button onClick={this.add}>Add 1</button>
+              <button onClick={this.subtract}>Subtract 1</button>
+            </div>
+          );
+        }
+      }
+      
+      ReactDOM.render(
+        <Counter count="2" />,
+        document.getElementById('root')
+      );
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="counterApp">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+
+    <div>
+      <counter />
+    </div> 
+
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.js"></script>
+    <script>
+      angular.module('counterApp', []);
+      angular.
+        module('counterApp').
+        component('counter', {
+          // template: 'Hello, {{$ctrl.user}}!',
+          template: '<h1>Counter: <span>{{count}}</span></h1>' +
+                    '<button ng-click="add1();">Add 1</button>' +
+                    '<button ng-click="subtract1()">Subtract 1</button>',
+          controller: function CounterController($scope) {
+            $scope.count = 1;
+            $scope.add1 = function() {
+              $scope.count = $scope.count + 1;
+            };
+            $scope.subtract1 = function() {
+              $scope.count = $scope.count - 1;
+              if($scope.count < 0) $scope.count = 0;
+            };
+          },
+          controllerAs: 'clCtrl'
+        });
+    </script>
+  </body>
+</html>
